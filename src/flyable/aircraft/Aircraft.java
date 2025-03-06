@@ -8,7 +8,7 @@ public abstract class Aircraft implements Flyable{
 	protected long id;
 	protected String name;
 	protected Coordinates coordinates;
-	protected WeatherTower tower = null;
+	protected WeatherTower weatherTower = null;
 
 	protected Aircraft(long p_id, String p_name, Coordinates p_coordinates) {
 		this.id = p_id;
@@ -17,7 +17,7 @@ public abstract class Aircraft implements Flyable{
 	}
 
 	public void registerTower(WeatherTower p_tower) {
-		this.tower = p_tower;
+		this.weatherTower = p_tower;
 	}
 
 	public long getId() {
