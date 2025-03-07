@@ -23,27 +23,15 @@ public class Coordinates {
 		return this.height;
 	}
 
-	public boolean setLongitude(int p_longitude) {
-		if (p_longitude >= 0) {
-			this.longitude = p_longitude;
-			return true;
-		}
-		return false;
+	public void changeLongitude(int change) {
+		this.longitude += change;
 	}
 
-	public boolean setLatitude(int p_latitude) {
-		if (p_latitude >= 0) {
-			this.latitude = p_latitude;
-			return true;
-		}
-		return false;
+	public void changeLatitude(int change) {
+		this.latitude += change;
 	}
 
-	public boolean setHeight(int p_height) {
-		if (p_height >= 0 && p_height <= 100) {
-			this.height = p_height;
-			return true;
-		}
-		return false;
+	public void changeHeight(int change) {
+		this.height += change;
 	}
 }
