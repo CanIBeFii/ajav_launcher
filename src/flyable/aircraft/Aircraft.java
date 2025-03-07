@@ -8,12 +8,14 @@ public abstract class Aircraft implements Flyable{
 	protected long id;
 	protected String name;
 	protected Coordinates coordinates;
+	protected boolean landed;
 	protected WeatherTower weatherTower = null;
 
 	protected Aircraft(long p_id, String p_name, Coordinates p_coordinates) {
 		this.id = p_id;
 		this.name = p_name;
 		this.coordinates = p_coordinates;
+		this.landed = false;
 	}
 
 	public void registerTower(WeatherTower p_tower) {
@@ -35,5 +37,15 @@ public abstract class Aircraft implements Flyable{
 
 	public Coordinates getCoordinates() {
 		return coordinates;
+	}
+
+	public boolean hasLanded() {
+		return landed;
+	}
+
+	protected void verifyPosition() {
+		if (coordinates.getHeight() <= 0) {
+			landed = true;
+		}
 	}
 }
