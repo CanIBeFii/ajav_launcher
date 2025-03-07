@@ -20,6 +20,7 @@ public abstract class Aircraft implements Flyable{
 
 	public void registerTower(WeatherTower p_tower) {
 		this.weatherTower = p_tower;
+		p_tower.register(this);
 	}
 
 	public void unregisterTower() {
