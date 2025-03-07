@@ -23,8 +23,8 @@ public abstract class Aircraft implements Flyable{
 	}
 
 	public void unregisterTower() {
-
-		this.weatherTower = null;
+		weatherTower.unregister(this);
+		weatherTower = null;
 	}
 
 	public long getId() {

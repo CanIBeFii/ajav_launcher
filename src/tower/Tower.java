@@ -20,9 +20,7 @@ public class Tower {
 
 	protected void conditionChanged() {
 		for (Flyable fly : observers) {
-			if (!fly.hasLanded()) {
-				fly.updateConditions();
-			}
+			fly.updateConditions();
 		}
 	}
 }
