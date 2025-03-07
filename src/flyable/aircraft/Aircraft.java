@@ -20,6 +20,11 @@ public abstract class Aircraft implements Flyable{
 		this.weatherTower = p_tower;
 	}
 
+	public void unregisterTower() {
+
+		this.weatherTower = null;
+	}
+
 	public long getId() {
 		return id;
 	}
