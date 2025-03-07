@@ -33,5 +33,8 @@ public class Coordinates {
 
 	public void changeHeight(int change) {
 		this.height += change;
+		if(height > 100) {
+			this.height = 100;
+		}
 	}
 }
