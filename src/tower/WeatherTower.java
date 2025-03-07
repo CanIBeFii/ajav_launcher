@@ -1,7 +1,5 @@
 package tower;
 
-import java.util.Random;
-
 import flyable.Coordinates;
 
 public class WeatherTower extends Tower{
