@@ -34,7 +34,7 @@ public class Helicopter extends Aircraft {
 	}
 
 	@Override
-	public String aircraftTag() {
+	public String tag() {
 		return "Helicopter#" + name + "(" + id + ")";
 	}
 }

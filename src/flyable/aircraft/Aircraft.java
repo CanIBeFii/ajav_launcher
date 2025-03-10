@@ -1,5 +1,7 @@
 package flyable.aircraft;
 
+import java.io.FileWriter;
+
 import flyable.Coordinates;
 import flyable.Flyable;
 import tower.WeatherTower;
@@ -9,21 +11,23 @@ public abstract class Aircraft implements Flyable{
 	protected String name;
 	protected Coordinates coordinates;
 	protected boolean landed;
+	protected FileWriter fileWriter;
 	protected WeatherTower weatherTower = null;
 
-	protected Aircraft(long p_id, String p_name, Coordinates p_coordinates) {
+	protected Aircraft(long p_id, String p_name, Coordinates p_coordinates) throws Exception{
 		this.id = p_id;
 		this.name = p_name;
 		this.coordinates = p_coordinates;
 		this.landed = false;
+		this.fileWriter = new FileWriter("simulation.txt");
 	}
 
-	public void registerTower(WeatherTower p_tower) {
+	public void registerTower(WeatherTower p_tower) throws Exception{
 		this.weatherTower = p_tower;
 		p_tower.register(this);
 	}
 
-	public void unregisterTower() {
+	public void unregisterTower() throws Exception{
 		weatherTower.unregister(this);
 		weatherTower = null;
 	}
@@ -50,7 +54,7 @@ public abstract class Aircraft implements Flyable{
 		}
 	}
 
-	public String aircraftTag() {
+	public String tag() {
 		return "Aircraft#" + name + "(" + id + ")";
 	}
 }
