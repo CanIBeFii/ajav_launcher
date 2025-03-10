@@ -51,6 +51,6 @@ public abstract class Aircraft implements Flyable{
 	}
 
 	public String aircraftTag() {
-		return "Aircraft#" + name + "(" + id + "): ";
+		return "Aircraft#" + name + "(" + id + ")";
 	}
 }

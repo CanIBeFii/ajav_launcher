@@ -34,6 +34,6 @@ public class JetPlane extends Aircraft {
 
 	@Override
 	public String aircraftTag() {
-		return "JetPlane#" + name + "(" + id + "): ";
+		return "JetPlane#" + name + "(" + id + ")";
 	}
 }

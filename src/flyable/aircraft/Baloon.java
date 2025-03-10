@@ -36,7 +36,7 @@ public class Baloon extends Aircraft {
 
 	@Override
 	public String aircraftTag() {
-		return "Baloon#" + name + "(" + id + "): ";
+		return "Baloon#" + name + "(" + id + ")";
 	}
 	
 }
