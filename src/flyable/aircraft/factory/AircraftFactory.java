@@ -27,7 +27,7 @@ public class AircraftFactory {
 		this.factories.remove(type);
 	}
 	
-	public Flyable newAircraft(String p_type, String p_name, Coordinates p_coordinates) {
+	public Flyable newAircraft(String p_type, String p_name, Coordinates p_coordinates) throws Exception{
 		Factory factory =  this.factories.get(p_type);
 		if (factory == null) {
 			return null;

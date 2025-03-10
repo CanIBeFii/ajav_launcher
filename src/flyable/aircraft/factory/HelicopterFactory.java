@@ -13,7 +13,7 @@ public class HelicopterFactory implements Factory{
 		return instance;
 	}
 
-	public Aircraft newAircraft(long p_id, String p_name, Coordinates p_coordinates) {
+	public Aircraft newAircraft(long p_id, String p_name, Coordinates p_coordinates) throws Exception{
 		return new Helicopter(p_id, p_name, p_coordinates);
 	}
 	

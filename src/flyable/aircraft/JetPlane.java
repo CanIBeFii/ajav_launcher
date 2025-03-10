@@ -3,7 +3,7 @@ package flyable.aircraft;
 import flyable.Coordinates;
 
 public class JetPlane extends Aircraft {
-	public JetPlane(long p_id, String p_name, Coordinates p_coordinates) {
+	public JetPlane(long p_id, String p_name, Coordinates p_coordinates) throws Exception{
 		super(p_id, p_name, p_coordinates);
 	}
 

@@ -13,7 +13,7 @@ public class BaloonFactory implements Factory{
 		return instance;
 	}
 
-	public Aircraft newAircraft(long p_id, String p_name, Coordinates p_coordinates) {
+	public Aircraft newAircraft(long p_id, String p_name, Coordinates p_coordinates) throws Exception{
 		return new Baloon(p_id, p_name, p_coordinates);
 	}
 }

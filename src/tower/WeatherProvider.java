@@ -26,4 +26,5 @@ public class WeatherProvider {
 					+ weatherVariable];
 		return newWeather;
 	}
+
 }

@@ -4,7 +4,7 @@ import flyable.Coordinates;
 
 public class WeatherTower extends Tower{
 
-	public WeatherTower() {
+	public WeatherTower() throws Exception{
 		super();
 	}
 
