@@ -1,5 +1,7 @@
 import tower.WeatherTower;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.util.ArrayList;
 
 import flyable.Coordinates;
@@ -16,7 +18,7 @@ public class Simulation {
 	private AircraftFactory factory;
 	private ArrayList<Flyable> flyables;
 
-	public Simulation(int times) {
+	public Simulation(int times) throws Exception{
 		this.simulationTimes = times;
 		this.weatherTower = new WeatherTower();
 		this.flyables = new ArrayList<Flyable>();
@@ -26,11 +28,11 @@ public class Simulation {
 		aircraftFactory.addFactory("JetPlane", JetPlaneFactory.getInstance());
 		this.factory = aircraftFactory;
 	}
-
+	
 	public void addFlyable(String line) throws Exception{
 		String regex = "[\\s]";
 		String[] attributes = line.split(regex);
-
+		
 		if (attributes.length != 5) {
 			throw new Exception("Wrong number of attribute for Flyable");
 		}
@@ -43,10 +45,15 @@ public class Simulation {
 		Integer latitude = Integer.parseInt(attributes[3]);
 		Integer height = Integer.parseInt(attributes[4]);
 		Coordinates coordinates = Coordinates.createCoordinates(longitude, latitude, height);
-
+		
 		Flyable aircraft = factory.newAircraft(attributes[0], attributes[1], coordinates);
 		flyables.add(aircraft);
 		aircraft.registerTower(weatherTower);
+	}
+	
+	public void prepareFile() throws Exception{
+		File file = new File("simulation.txt");
+		file.createNewFile();
 	}
 
 	public void runSimulation() {

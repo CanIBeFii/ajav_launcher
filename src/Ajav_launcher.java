@@ -34,6 +34,7 @@ public class Ajav_launcher {
 		Integer times = Integer.parseInt(scanner.nextLine());
 		Simulation simulation = new Simulation(times);
 
+		simulation.prepareFile();
 		while (scanner.hasNext()) {
 			String line = scanner.nextLine();
 			simulation.addFlyable(line);
