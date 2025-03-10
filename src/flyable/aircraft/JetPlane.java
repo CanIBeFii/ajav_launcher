@@ -31,4 +31,9 @@ public class JetPlane extends Aircraft {
 				break;
 		}
 	}
+
+	@Override
+	public String aircraftTag() {
+		return "JetPlane#" + name + "(" + id + "): ";
+	}
 }

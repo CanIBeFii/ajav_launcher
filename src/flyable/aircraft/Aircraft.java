@@ -49,4 +49,8 @@ public abstract class Aircraft implements Flyable{
 			landed = true;
 		}
 	}
+
+	public String aircraftTag() {
+		return "Aircraft#" + name + "(" + id + "): ";
+	}
 }
