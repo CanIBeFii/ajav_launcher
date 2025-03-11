@@ -12,7 +12,7 @@ public class WeatherTower extends Tower{
 		return WeatherProvider.getInstance().getWeather(p_coordinates);
 	}
 
-	public void changeWeather() {
+	public void changeWeather() throws Exception {
 		conditionChanged();
 	}
 }

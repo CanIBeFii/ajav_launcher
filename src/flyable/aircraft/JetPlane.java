@@ -7,25 +7,26 @@ public class JetPlane extends Aircraft {
 		super(p_id, p_name, p_coordinates);
 	}
 
-	public void updateConditions() {
+	public void updateConditions() throws Exception {
 		String weather = this.weatherTower.getWeather(this.coordinates);
 
 		switch (weather) {
 			case "SUN":
 				coordinates.changeHeight(2);
 				coordinates.changeLatitude(10);
-				//TODO Print message to file simulation.txt
+				printMessage("The sun is so shinny!");
 				break;
 			case "RAIN":
 				coordinates.changeLatitude(5);
-				//TODO Print message to file simulation.txt
+				printMessage("It's rainning man, Aleluia.");
 				break;
 			case "FOG":
 				coordinates.changeLatitude(1);
+				printMessage("Can't see a thing outside.");
 				break;
 			case "SNOW":
 				coordinates.changeHeight(-7);
-				//TODO Print message to file simulation.txt
+				printMessage("Snowing? Damn climate change is crazy!");
 				break;
 			default:
 				break;

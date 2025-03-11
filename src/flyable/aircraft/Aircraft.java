@@ -57,4 +57,8 @@ public abstract class Aircraft implements Flyable{
 	public String tag() {
 		return "Aircraft#" + name + "(" + id + ")";
 	}
+
+	protected void printMessage(String message) throws Exception {
+		fileWriter.write(tag() + ": " + message + "\n");
+	}
 }

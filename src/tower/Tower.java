@@ -23,7 +23,7 @@ public class Tower {
 		fileWriter.write("Tower says: " + p_flyable.tag() + " unregistered to tower");
 	}
 
-	protected void conditionChanged() {
+	protected void conditionChanged() throws Exception{
 		for (Flyable fly : observers) {
 			fly.updateConditions();
 		}

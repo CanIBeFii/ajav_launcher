@@ -1,7 +1,6 @@
 import tower.WeatherTower;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.util.ArrayList;
 
 import flyable.Coordinates;
@@ -56,7 +55,7 @@ public class Simulation {
 		file.createNewFile();
 	}
 
-	public void runSimulation() {
+	public void runSimulation() throws Exception {
 		while (simulationTimes != 0) {
 			weatherTower.changeWeather();
 			simulationTimes--;

@@ -7,26 +7,26 @@ public class Helicopter extends Aircraft {
 		super(p_id, p_name, p_coordinates);
 	}
 	
-	public void updateConditions() {
+	public void updateConditions() throws Exception{
 		String weather = this.weatherTower.getWeather(this.coordinates);
 
 		switch (weather) {
 			case "SUN":
 				coordinates.changeLatitude(10);
 				coordinates.changeHeight(2);
-				//TODO Print message to file simulation.txt
+				printMessage("The sun is so shinny!");
 				break;
 			case "RAIN":
 				coordinates.changeLongitude(5);
-				//TODO Print message to file simulation.txt
+				printMessage("It's rainning man, Aleluia.");
 				break;
 			case "FOG":
 				coordinates.changeLongitude(1);
-				//TODO Print message to file simulation.txt
+				printMessage("Can't see a thing outside.");
 				break;
 			case "SNOW":
 				coordinates.changeHeight(-12);
-				//TODO Print message to file simulation.txt
+				printMessage("Snowing? Damn climate change is crazy!");
 				break;
 			default:
 				break;
