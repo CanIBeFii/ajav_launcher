@@ -1,6 +1,7 @@
 import tower.WeatherTower;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.util.ArrayList;
 
 import flyable.Coordinates;
@@ -16,11 +17,18 @@ public class Simulation {
 	private WeatherTower weatherTower;
 	private AircraftFactory factory;
 	private ArrayList<Flyable> flyables;
+	private FileWriter fileWriter;
 
 	public Simulation(int times) throws Exception{
 		this.simulationTimes = times;
 		this.weatherTower = new WeatherTower();
 		this.flyables = new ArrayList<Flyable>();
+
+		File file = new File("simulation.txt");
+		file.createNewFile();
+		this.fileWriter = new FileWriter("simulation.txt");
+		this.weatherTower.setFileWriter(fileWriter);
+
 		AircraftFactory aircraftFactory = AircraftFactory.getInstance();
 		aircraftFactory.addFactory("Baloon", BaloonFactory.getInstance());
 		aircraftFactory.addFactory("Helicopter", HelicopterFactory.getInstance());
@@ -46,13 +54,9 @@ public class Simulation {
 		Coordinates coordinates = Coordinates.createCoordinates(longitude, latitude, height);
 		
 		Flyable aircraft = factory.newAircraft(attributes[0], attributes[1], coordinates);
+		aircraft.setFileWriter(fileWriter);
 		flyables.add(aircraft);
 		aircraft.registerTower(weatherTower);
-	}
-	
-	public void prepareFile() throws Exception{
-		File file = new File("simulation.txt");
-		file.createNewFile();
 	}
 
 	public void runSimulation() throws Exception {
@@ -60,5 +64,6 @@ public class Simulation {
 			weatherTower.changeWeather();
 			simulationTimes--;
 		}
+		fileWriter.close();
 	}
 }

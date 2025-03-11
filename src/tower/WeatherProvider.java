@@ -20,10 +20,10 @@ public class WeatherProvider {
 	
 	public String getWeather(Coordinates p_coordinates) {
 		int weatherVariable = weatherGenerator.nextInt(4);
-		String newWeather = weather[p_coordinates.getLongitude() 
+		String newWeather = weather[(p_coordinates.getLongitude() 
 					+ p_coordinates.getLatitude()
 					+ p_coordinates.getHeight()
-					+ weatherVariable];
+					+ weatherVariable) % 4];
 		return newWeather;
 	}
 

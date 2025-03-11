@@ -1,5 +1,7 @@
 package flyable;
 
+import java.io.FileWriter;
+
 import tower.WeatherTower;
 public interface Flyable {
 	void updateConditions() throws Exception;
@@ -7,4 +9,5 @@ public interface Flyable {
 	void unregisterTower() throws Exception;
 	boolean hasLanded();
 	String tag();
+	public void setFileWriter(FileWriter fileWriter);
 }

@@ -31,6 +31,7 @@ public class JetPlane extends Aircraft {
 			default:
 				break;
 		}
+		verifyPosition();
 	}
 
 	@Override

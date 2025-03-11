@@ -14,12 +14,13 @@ public abstract class Aircraft implements Flyable{
 	protected FileWriter fileWriter;
 	protected WeatherTower weatherTower = null;
 
+
 	protected Aircraft(long p_id, String p_name, Coordinates p_coordinates) throws Exception{
 		this.id = p_id;
 		this.name = p_name;
 		this.coordinates = p_coordinates;
 		this.landed = false;
-		this.fileWriter = new FileWriter("simulation.txt");
+		this.fileWriter = null;
 	}
 
 	public void registerTower(WeatherTower p_tower) throws Exception{
@@ -28,8 +29,11 @@ public abstract class Aircraft implements Flyable{
 	}
 
 	public void unregisterTower() throws Exception{
-		weatherTower.unregister(this);
 		weatherTower = null;
+	}
+
+	public void setFileWriter(FileWriter fileWriter) {
+		this.fileWriter = fileWriter;
 	}
 
 	public long getId() {
@@ -48,9 +52,10 @@ public abstract class Aircraft implements Flyable{
 		return landed;
 	}
 
-	protected void verifyPosition() {
+	protected void verifyPosition() throws Exception{
 		if (coordinates.getHeight() <= 0) {
 			landed = true;
+			printMessage("Has landed");
 		}
 	}
 

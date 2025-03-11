@@ -31,6 +31,7 @@ public class Helicopter extends Aircraft {
 			default:
 				break;
 		}
+		verifyPosition();
 	}
 
 	@Override

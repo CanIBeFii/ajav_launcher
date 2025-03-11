@@ -32,6 +32,7 @@ public class Baloon extends Aircraft {
 			default:
 				break;
 		}
+		verifyPosition();
 	}
 
 	@Override
