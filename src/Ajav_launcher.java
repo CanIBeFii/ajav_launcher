@@ -5,6 +5,7 @@ public class Ajav_launcher {
 	public static void main(String[] args) {
 		if (args.length != 1) {
 			System.out.println("Please give only the input file!");
+			return;
 		}
 		try {
 			File file = verifyFile(args[0]);
