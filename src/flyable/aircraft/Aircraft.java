@@ -6,14 +6,12 @@ import flyable.Coordinates;
 import flyable.Flyable;
 import tower.WeatherTower;
 
-public abstract class Aircraft implements Flyable{
+public class Aircraft extends Flyable{
 	protected long id;
 	protected String name;
 	protected Coordinates coordinates;
 	protected boolean landed;
 	protected FileWriter fileWriter;
-	protected WeatherTower weatherTower = null;
-
 
 	protected Aircraft(long p_id, String p_name, Coordinates p_coordinates) throws Exception{
 		this.id = p_id;
@@ -21,15 +19,6 @@ public abstract class Aircraft implements Flyable{
 		this.coordinates = p_coordinates;
 		this.landed = false;
 		this.fileWriter = null;
-	}
-
-	public void registerTower(WeatherTower p_tower) throws Exception{
-		this.weatherTower = p_tower;
-		p_tower.register(this);
-	}
-
-	public void unregisterTower() throws Exception{
-		weatherTower = null;
 	}
 
 	public void setFileWriter(FileWriter fileWriter) {
@@ -65,5 +54,9 @@ public abstract class Aircraft implements Flyable{
 
 	protected void printMessage(String message) throws Exception {
 		fileWriter.write(tag() + ": " + message + "\n");
+	}
+
+	public void updateConditions() throws Exception {
+		throw new Exception("Aircraft doesn't have enough information to update it's conditions");
 	}
 }
