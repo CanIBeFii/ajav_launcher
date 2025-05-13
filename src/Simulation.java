@@ -51,6 +51,10 @@ public class Simulation {
 		Integer longitude = Integer.parseInt(attributes[2]);
 		Integer latitude = Integer.parseInt(attributes[3]);
 		Integer height = Integer.parseInt(attributes[4]);
+
+		if (longitude < 0 || latitude < 0 || height < 0 || height > 100) {
+			throw new Exception("Coordinates do not obey the law! Get him police officer, he did a crime!!");
+		}
 		Coordinates coordinates = Coordinates.createCoordinates(longitude, latitude, height);
 		
 		Flyable aircraft = factory.newAircraft(attributes[0], attributes[1], coordinates);

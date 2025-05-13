@@ -33,8 +33,11 @@ public class Ajav_launcher {
 	private static Simulation createSimulation(File file) throws Exception {
 		Scanner scanner = new Scanner(file);
 		Integer times = Integer.parseInt(scanner.nextLine());
-		Simulation simulation = new Simulation(times);
 
+		if (times <= 0) {
+			throw new Exception("Times to run simulation aren't correct wtf");
+		}
+		Simulation simulation = new Simulation(times);
 		while (scanner.hasNext()) {
 			String line = scanner.nextLine();
 			simulation.addFlyable(line);
