@@ -8,7 +8,7 @@ public class Helicopter extends Aircraft {
 	}
 	
 	public void updateConditions() throws Exception{
-		String weather = this.weatherTower.getWeather(this.coordinates);
+		String weather = this.weatherTower.getCurrentWeather(this.coordinates);
 
 		switch (weather) {
 			case "SUN":

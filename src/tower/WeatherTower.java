@@ -8,8 +8,8 @@ public class WeatherTower extends Tower{
 		super();
 	}
 
-	public String getWeather(Coordinates p_coordinates) {
-		return WeatherProvider.getInstance().getWeather(p_coordinates);
+	public String getCurrentWeather(Coordinates p_coordinates) {
+		return WeatherProvider.getInstance().getCurrentWeather(p_coordinates);
 	}
 
 	public void changeWeather() throws Exception {

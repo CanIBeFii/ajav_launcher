@@ -18,7 +18,7 @@ public class WeatherProvider {
 		return instance;
 	}
 	
-	public String getWeather(Coordinates p_coordinates) {
+	public String getCurrentWeather(Coordinates p_coordinates) {
 		int weatherVariable = weatherGenerator.nextInt(4);
 		String newWeather = weather[(p_coordinates.getLongitude() 
 					+ p_coordinates.getLatitude()
