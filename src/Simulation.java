@@ -13,11 +13,11 @@ import flyable.aircraft.factory.JetPlaneFactory;
 
 
 public class Simulation {
-	private int simulationTimes;
-	private WeatherTower weatherTower;
-	private AircraftFactory factory;
-	private ArrayList<Flyable> flyables;
-	private FileWriter fileWriter;
+	private int					simulationTimes;
+	private WeatherTower		weatherTower;
+	private AircraftFactory		factory;
+	private ArrayList<Flyable>	flyables;
+	private FileWriter			fileWriter;
 
 	public Simulation(int times) throws Exception{
 		this.simulationTimes = times;
@@ -45,8 +45,8 @@ public class Simulation {
 		}
 		// not very good this line
 		// because it makes difficult to expand the functionality of this program but come on mannn
-		if (attributes[0].matches("[Baloon|Helicopter|JetPlane]")) {
-			throw new Exception("Not known type of flyable given");
+		if (!attributes[0].matches("Baloon|Helicopter|JetPlane")) {
+			throw new Exception("Not known type of flyable given:" + attributes[0]);
 		}
 		Integer longitude = Integer.parseInt(attributes[2]);
 		Integer latitude = Integer.parseInt(attributes[3]);
